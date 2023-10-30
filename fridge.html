@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E06</title>
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeaea;
+        }
+
+        #fridgeDisplay {
+            width: 400px;
+            height: 600px;
+            padding: 20px;
+            margin: 50px auto;
+            background-color: #fff;
+            display: none; 
+        }
+
+        #powerButtons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #clock {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #temperature {
+            text-align: center;
+            font-size: 20px;
+            background-color: #f0f0f0;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            background-color: #1565C0;
+        }
+
+        .content {
+            display: none;
+            max-width: 370px;
+            max-height: 460px;
+            overflow: auto;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="powerButtons">
+        <button onclick="togglePower('on')">Power On</button>
+        <button onclick="togglePower('off')">Power Off</button>
+    </div>
+
+    <div id="fridgeDisplay">
+        <div id="clock">00:00:00</div>
+        <div id="temperature">Temperature: 35°F</div>
+
+        <div class="control-buttons">
+            <button onclick="toggleDisplay('View Inside')">View Inside</button>
+            <button onclick="toggleDisplay('Watch Tv')">Watch Tv</button>
+            <button onclick="toggleDisplay('Google')">Google</button>
+        </div>
+        
+        <div class="content" id="View Inside"><img src="https://feelgoodfoodie.net/wp-content/uploads/2020/06/How-to-Stock-a-Fridge-1.jpg" alt="View Inside"></div>
+        <div class="content" id="Watch Tv"><img src="https://www.cabletv.com/app/uploads/Netflix-Scrn-1.jpg" alt="Watch Tv"></div>
+        <div class="content" id="Google"><img src="https://cdn.wallpapersafari.com/2/93/Dw5Byp.jpg" alt="Google"></div>
+    </div>
+
+    <script>
+        let currentDisplay = null;
+
+        function togglePower(state) {
+            const display = document.getElementById('fridgeDisplay');
+            if (state === 'on') {
+                display.style.display = 'block';
+            } else {
+                display.style.display = 'none';
+                if (currentDisplay) {
+                    document.getElementById(currentDisplay).style.display = "none";
+                    currentDisplay = null;
+                }
+            }
+        }
+
+        function toggleDisplay(id) {
+            if (currentDisplay) {
+                document.getElementById(currentDisplay).style.display = "none";
+            }
+
+            let contentDiv = document.getElementById(id);
+            contentDiv.style.display = "block";
+            currentDisplay = id;
+        }
+
+        function updateClock() {
+            let now = new Date();
+            let timeString = now.toTimeString().split(' ')[0];
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>
