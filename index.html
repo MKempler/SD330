@@ -1,1 +1,87 @@
-<h1> Hello World! </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository File List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('largest-desert-world.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .avatar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 90px; 
+            height: 90px;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #files p {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            margin: 5px;
+        }
+        #files a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body onload="githubFilelist()">
+    <header>
+        <h1>Max Kempler's GitHub Repository Files</h1>
+        <img src="Avatar.png" alt="Max Kempler" class="avatar"> 
+    </header>
+    <div>
+        <p>Welcome to my System Design GitHub Repository file list page!</p>
+    </div>
+    <div id="files">
+       
+    </div>
+    <footer>
+        <hr>
+        <p>&copy; M. Kempler November 8, 2023</p>
+    </footer>
+
+    <script>
+        function githubFilelist() {
+            var htmlString = "";
+
+            (async () => {
+                const response = await fetch("https://api.github.com/repos/mkempler/SD330/contents/");
+                const data = await response.json();
+
+                for (let file of data) {
+                    var fname = file.name;           
+                    var fpath = "https://mkempler.github.io/SD330/" + fname;  
+                    
+                    htmlString += "<p><a href='" + fpath + "'>" + fname + "</a></p>";
+                }
+
+                document.getElementById('files').innerHTML = htmlString;
+            })()
+        }
+    </script>
+</body>
+</html>
