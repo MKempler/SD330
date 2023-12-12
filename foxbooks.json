@@ -26,6 +26,7 @@
           }
         ]
       },
+      
       {
         "CourseID": "C102",
         "Title": "World History",
@@ -52,6 +53,7 @@
           }
         ]
       },
+     
       {
         "CourseID": "C103",
         "Title": "Economics",
@@ -78,6 +80,7 @@
           }
         ]
       },
+     
       {
         "CourseID": "C104",
         "Title": "Intro to Philosophy",
@@ -88,7 +91,7 @@
         "Books": [
           {
             "ISBN": "978-6-456789-93-7",
-            "Title": "Philosophy: A Beginner's Guide",
+            "Title": "Philosophy 101",
             "Author": "John Davis",
             "Publisher": "Penguin Classics",
             "Year": 2018,
@@ -104,6 +107,7 @@
           }
         ]
       },
+     
       {
         "CourseID": "C105",
         "Title": "Calculus 1",
@@ -130,9 +134,10 @@
           }
         ]
       },
+      
       {
         "CourseID": "C106",
-        "Title": "internetworking",
+        "Title": "Internetworking",
         "Semester": "Spring 2023",
         "Professor": "Robbert Cannistra",
         "Credits": 3,
@@ -156,6 +161,7 @@
           }
         ]
       },
+     
       {
         "CourseID": "C107",
         "Title": "Software Development 2",
@@ -182,6 +188,7 @@
           }
         ]
       },
+     
       {
         "CourseID": "C108",
         "Title": "American Short Fiction",
@@ -200,7 +207,7 @@
           },
           {
             "ISBN": "978-15-12345-02-5",
-            "Title": "The sleepy Hollow",
+            "Title": "The Sleepy Hollow",
             "Author": "Washington Irving",
             "Publisher": "Penguin Classics",
             "Year": 2022,
